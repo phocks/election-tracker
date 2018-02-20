@@ -1,6 +1,6 @@
 var Watcher = require("feed-watcher"),
   feed = "http://www.abc.net.au/news/feed/51120/rss.xml",
-  interval = 10; // seconds
+  interval = 60; // seconds
 
 // if not interval is passed, 60s would be set as default interval.
 var watcher = new Watcher(feed, interval);
@@ -9,6 +9,7 @@ var watcher = new Watcher(feed, interval);
 watcher.on("new entries", function(entries) {
   entries.forEach(function(entry) {
     console.log(entry.title);
+    console.log(entry.link);
   });
 });
 
